@@ -20,10 +20,11 @@ resource "aws_ecs_service" "chatapp" {
 
   network_configuration {
     assign_public_ip = true
-    security_groups  = [aws_security_group.chatapp.id]
-    subnets = aws_subnet.public_1a.id
+    security_groups  = [
+      aws_security_group.chatapp.id
+    ]
+    subnets = [
+      aws_subnet.public_1a.id
+    ]  
   }
-
-  iam_role = aws_iam_role.foo.arn
-  depends_on = [aws_iam_role_policy.foo]
 }
