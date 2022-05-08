@@ -16,11 +16,11 @@ resource "aws_subnet" "private_1c" {
   }
 }
 
-resource "aws_subnet" "private_1b" {
+resource "aws_subnet" "private_1d" {
   vpc_id = aws_vpc.main.id
-  availability_zone = "ap-northeast-1b"
+  availability_zone = "ap-northeast-1d"
   cidr_block        = "10.0.2.0/24"
   tags = {
-    Name = "chatapp-private-1b"
+    Name = "chatapp-private-1d"
   }
 }

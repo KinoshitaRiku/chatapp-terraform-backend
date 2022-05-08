@@ -18,6 +18,6 @@ resource "aws_db_subnet_group" "chatapp" {
   name = "chatapp"
   subnet_ids = [
     aws_subnet.private_1c.id,
-    aws_subnet.private_1b.id
+    aws_subnet.private_1d.id
   ]
 }
