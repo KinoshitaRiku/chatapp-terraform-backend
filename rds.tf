@@ -1,9 +1,10 @@
 resource "aws_db_instance" "chatapp" {
+  identifier = "chatapp"
   allocated_storage    = 10
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t3.micro"
-  name                 = "chatapp"
+  name                 = "rails"
   username             = "root"
   password             = "password"
   parameter_group_name = "default.mysql5.7"
