@@ -21,7 +21,7 @@ resource "aws_ecs_cluster" "chatapp" {
 #   network_configuration {
 #     assign_public_ip = true
 #     security_groups  = [
-#       aws_security_group.chatapp.id
+#       aws_security_group.chatapp_ecs.id
 #     ]
 #     subnets = [
 #       aws_subnet.public_1a.id

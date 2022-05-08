@@ -1,8 +1,8 @@
-resource "aws_security_group" "chatapp" {
-  name = "chatapp"
+resource "aws_security_group" "chatapp_ecs" {
+  name = "chatapp-ecs"
   vpc_id = aws_vpc.main.id
   tags = {
-    Name = "chatapp"
+    Name = "chatapp-ecs"
   }
 
   # ingress {
@@ -43,4 +43,27 @@ resource "aws_security_group" "chatapp" {
   #   protocol         = "tcp"
   #   cidr_blocks      = [aws_vpc.main.cidr_block]
   # }
+}
+
+resource "aws_security_group" "chatapp_rds" {
+  name = "chatapp-rds"
+  vpc_id = aws_vpc.main.id
+  tags = {
+    Name = "chatapp-rds"
+  }
+
+  ingress {
+    description      = "mysql"
+    from_port        = 3306
+    to_port          = 3306
+    protocol         = "tcp"
+    cidr_blocks      = [aws_vpc.main.cidr_block]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
 }
