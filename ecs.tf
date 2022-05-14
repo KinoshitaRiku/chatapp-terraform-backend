@@ -26,4 +26,9 @@ resource "aws_ecs_service" "chatapp" {
       aws_subnet.public_1a.id
     ]  
   }
+  load_balancer {
+    target_group_arn = aws_lb_target_group.chatapp.arn
+    container_name   = "nginx"
+    container_port   = 80
+  }
 }
